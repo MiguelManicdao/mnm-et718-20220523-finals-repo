@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220523145921) do
+ActiveRecord::Schema.define(version: 20220523153753) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20220523145921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_skills_on_resume_id"
+  end
+
+  create_table "works", force: :cascade do |t|
+    t.string   "title"
+    t.string   "year"
+    t.string   "description"
+    t.integer  "resume_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["resume_id"], name: "index_works_on_resume_id"
   end
 
 end
